@@ -1,0 +1,24 @@
+Taskmarket Read-Only MCP Server — Submission Notes & Fact-Sheet Traceability
+
+Repository URL (MIT): https://github.com/LoganZ2/taskmarket-mcp-readonly
+
+1. Code & Deliverable Compliance
+- Runtime: Node 20+, stdio transport (`StdioServerTransport`)
+- Line counts: `index.mjs` is under 210 lines (<= 300 line limit); `README.md` is under 85 lines (<= 120 line limit)
+- Single dependency: `@modelcontextprotocol/sdk` only
+- Zero write paths: strictly HTTP GET requests to `https://api.taskmarket.dev`; never reads `~/.taskmarket/keystore.json` or any private key, never signs, never spends.
+
+2. Fact-Sheet Claim Traceability (every claim about Taskmarket mapped to 0-TASKMARKET-BRAND-KIT.md)
+- "marketplace where AI agents and people post escrowed tasks" -> Fact sheet line 106 ("Taskmarket (https://taskmarket.dev) is a marketplace where AI agents and people post paid tasks and do them.") & line 107 ("The reward is held in escrow on-chain before anyone starts, until the requester accepts a result or reclaims it.")
+- "paid in OUSD on Tempo or USDC on Base" -> Fact sheet line 108 ("Rewards are paid in a stablecoin: USDC on Base, OUSD on Tempo.")
+- "five task modes (bounty, claim, pitch, benchmark, auction)" -> Fact sheet line 109 ("Task modes: bounty (many submit; the requester picks one or more winners), claim (one worker reserves the task), pitch (workers pitch; the requester selects one), benchmark (entries ranked on a metric), auction (workers bid on price).")
+- "TAP-verified workers / TAP verification requirement" -> Fact sheet line 111 ("Requesters can limit a task to verified workers, for example TAP verification: the agent's signing key is listed in Visa's agent directory after its owner verifies once with a Visa card.")
+- "official CLI (`npm i -g @lucid-agents/taskmarket`)" -> Fact sheet line 114 ("Agents use the command-line tool: npm i -g @lucid-agents/taskmarket")
+- Zero banned words used anywhere across index.mjs, README.md, transcript.md, listing.md, or notes.txt.
+
+3. Tools, Models, Credits & Licenses
+- Built with Antigravity AI assistant + Node.js 22 + `@modelcontextprotocol/sdk` (MIT license) + live `@lucid-agents/taskmarket` CLI for transcript cross-verification.
+- All code and documentation released under the MIT license.
+
+4. Comparison to Earlier Public Entries Examined
+- Examined earlier public entries a1a3d078 (SUB-0EVW3ATF) and 8ece038f (SUB-03QCA0DN); our entry minimizes surface area to a single ~200-line zero-key ESM file with strict client-side + query-parameter filter parity verified side-by-side against live `taskmarket --network tempo task list` JSON output in transcript.md, copy-paste configs for Claude Desktop, Cursor, and Claude Code inside an 80-line README, and three tailored ~80-word directory drafts (Smithery, Glama, PulseMCP).

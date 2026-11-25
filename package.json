@@ -1,0 +1,19 @@
+{
+  "name": "taskmarket-mcp-readonly",
+  "version": "1.0.0",
+  "description": "Read-only MCP server allowing Claude, Cursor, and other MCP clients to browse open Taskmarket tasks.",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "taskmarket-mcp-readonly": "./index.mjs"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "start": "node index.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1"
+  }
+}
